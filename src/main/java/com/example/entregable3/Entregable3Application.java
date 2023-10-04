@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Entregable3Application {
 
 	public static void main(String[] args) {
+		System.out.println("alive");
 		SpringApplication.run(Entregable3Application.class, args);
+		System.out.println("finish");
 	}
 
 }
