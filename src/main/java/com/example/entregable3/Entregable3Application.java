@@ -7,9 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Entregable3Application {
 
 	public static void main(String[] args) {
-		System.out.println("alive");
+		//todo: literalmente no hay capa de persistencia. Hay que ver como hacerla. Seguramente docker.
+		System.out.println("Initializing...");
 		SpringApplication.run(Entregable3Application.class, args);
-		System.out.println("finish");
+		System.out.println("Finished Initializing");
 	}
 
 }
