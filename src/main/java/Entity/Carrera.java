@@ -13,7 +13,6 @@ public class Carrera {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_carrera;
 
-
     @OneToMany(mappedBy = "carrera", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Inscripcion> inscripciones;
 
@@ -28,19 +27,5 @@ public class Carrera {
         super();
         this.nombre = nombre;
         this.inscripciones = new HashSet<>();
-    }
-
-    public Carrera(Set<Inscripcion> inscripciones, String nombre) {
-        this(nombre);
-        this.inscripciones = new HashSet<>(inscripciones);
-    }
-
-    public void addInscripcion(Inscripcion inscripcion) {
-        this.inscripciones.add(inscripcion);
-    }
-
-    public Set<Inscripcion> getInscripciones() {
-        Set<Inscripcion> result = new HashSet<>(inscripciones);
-        return result;
     }
 }

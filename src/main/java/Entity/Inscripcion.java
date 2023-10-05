@@ -1,31 +1,51 @@
 package Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Data;
-
 import java.time.LocalDate;
+import jakarta.persistence.*;
+import java.time.Period;
 
 @Entity
 @Data
 public class Inscripcion {
+    @ManyToOne( cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinColumn(name = "numeroLegajo")
+    private Estudiante estudiante;
+
+    @ManyToOne( cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinColumn(name = "id_carrera")
+    private Carrera carrera;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_inscripcion;
 
-    @Column
-    private int id_estudiante;
-
-    @Column
-    private int id_carrera;
-
-    @Column
+    @Column(name = "fecha_de_inicio")
     private LocalDate fechaInicio;
 
-    @Column
+    @Column(name = "es_graduado")
     private boolean esGraduado = false;
 
-    public Inscripcion(){
 
+    public Inscripcion() {
+        super();
+        this.fechaInicio = LocalDate.now();
+    }
+
+    public Inscripcion(Estudiante estudiante, Carrera carrera) {
+        this();
+        this.estudiante = estudiante;
+        this.carrera = carrera;
+    }
+
+    public int getAniosAntiguedad() {
+        Period p = Period.between(this.fechaInicio, LocalDate.now());
+        return p.getYears();
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service("EstudianteServicio")
+@Service("EstudianteService")
 public class EstudianteService implements BaseService<Estudiante> {
     @Autowired
     private EstudianteRepository estudianteRepository;
@@ -71,7 +71,7 @@ public class EstudianteService implements BaseService<Estudiante> {
 
     @Transactional
     public List<EstudianteDTO> getEstudiantesPorGenero(char genero) throws Exception {
-        var result = estudianteRepository.findAllByGenero(genero);
+        var result = estudianteRepository.getEstudiantesByGenero(genero);
         try {
             return result.stream().map(estudiante -> new EstudianteDTO(estudiante.getNumeroLegajo(), estudiante.getNombre(), estudiante.getApellido())).collect(Collectors.toList());
         } catch (Exception e){

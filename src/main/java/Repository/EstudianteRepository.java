@@ -11,11 +11,6 @@ public interface EstudianteRepository extends BaseRepository<Estudiante, Integer
     //todo: queries
     /* La  unica faltante es la de aca abajo deberia se un insert de estudiante */
 
-    /*@Query(
-            "insert into "
-    )
-    void agregarEstudiante(Estudiante estudiante);*/
-
     List<Estudiante> getEstudianteByNumeroLegajo(int nuemeroLegajo);
 
     @Query(

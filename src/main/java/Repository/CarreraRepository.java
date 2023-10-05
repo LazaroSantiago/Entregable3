@@ -1,5 +1,6 @@
 package Repository;
 
+import DTO.CarreraDTO;
 import Entity.Carrera;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -17,4 +18,5 @@ public interface CarreraRepository extends BaseRepository<Carrera, Integer>{
                     "ORDER BY cantEstudiantes DESC "
     )
     List<Carrera> getCarrerasPorCantidadEstudiantes();
+    
 }
