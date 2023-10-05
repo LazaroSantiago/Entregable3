@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service("InscripcionService")
 public class InscripcionService implements BaseService<Inscripcion> {
-    todo();
+    //todo();
 
     @Autowired
     private InscripcionRepository InscripcionRepository;

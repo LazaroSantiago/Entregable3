@@ -11,6 +11,7 @@ import java.util.Set;
 @Data
 public class Estudiante {
     @Id
+    @Column(name = "numero_legajo")
     private int numeroLegajo;
 
     @Column

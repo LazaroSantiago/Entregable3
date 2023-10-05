@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service("CarreraService")
 public class CarreraService implements BaseService{
-    todo();
+    //todo carrera service
 
     @Autowired
     private CarreraRepository CarreraRepository;

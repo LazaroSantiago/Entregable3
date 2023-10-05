@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/inscripciones")
 public class InscripcionController {
-    todo();
+    //todo: inscription controller
 }

@@ -13,7 +13,7 @@ public class Inscripcion {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    @JoinColumn(name = "numeroLegajo")
+    @JoinColumn(name = "numero_legajo")
     private Estudiante estudiante;
 
     @ManyToOne( cascade = {
