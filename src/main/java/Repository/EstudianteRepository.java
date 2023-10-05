@@ -9,9 +9,28 @@ import java.util.List;
 @Repository("EstudianteRepository")
 public interface EstudianteRepository extends BaseRepository<Estudiante, Integer> {
     //todo: queries
-    /* Las cosas que requieran SQL o no esten en el repo base van aca. */
-    //ejemplo:
+    /* La  unica faltante es la de aca abajo deberia se un insert de estudiante */
 
-    @Query("SELECT e FROM Estudiante e WHERE e.genero = :genero")
-    List<Estudiante> findAllByGenero(char genero);
+    /*@Query(
+            "insert into "
+    )
+    void agregarEstudiante(Estudiante estudiante);*/
+
+    List<Estudiante> getEstudianteByNumeroLegajo(int nuemeroLegajo);
+
+    @Query(
+            " SELECT e FROM Estudiante e " +
+                    "ORDER BY e.numeroLegajo DESC "
+    )
+    List<Estudiante> getEstudiantes();
+
+    @Query(
+            " SELECT e FROM Estudiante e " +
+                    "ORDER BY e.numeroLegajo ASC "
+    )
+    List<Estudiante> getEstudiantesAscendente();
+
+    List<Estudiante> getEstudiantesByGenero(char genero);
+
+    List<Estudiante> deleteEstudianteByNumeroLegajo(int numeroLegajo );
 }

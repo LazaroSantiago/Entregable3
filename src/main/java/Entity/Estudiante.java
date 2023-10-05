@@ -17,11 +17,17 @@ public class Estudiante {
     @Column
     private String apellido;
     @Column
+    private int edad;
+    @Column
     private char genero;
-
+    @Column
+    private int DNI;
+    @Column
+    private String ciudad;
 
     @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Inscripcion> inscripciones;
+
 
     public Estudiante(){
         super();
