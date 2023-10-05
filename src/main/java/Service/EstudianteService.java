@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service("EstudianteServicio")
+@Service("EstudianteService")
 public class EstudianteService implements BaseService<Estudiante> {
     @Autowired
     private EstudianteRepository estudianteRepository;

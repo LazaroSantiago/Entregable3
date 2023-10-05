@@ -1,6 +1,5 @@
 package DTO;
 
-import Entity.Estudiante;
 import lombok.Data;
 
 @Data
