@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import util.CargaDeDatos;
 
 @SpringBootApplication
-@ComponentScan({"util", "controller", "entity", "repository", "service", "test", "DTO"})
+@ComponentScan({"util", "controller", "entity", "repository", "service", "DTO"})
 @EnableJpaRepositories("repository")
 @EntityScan("entity")
 public class Entregable3Application {
@@ -26,6 +26,7 @@ public class Entregable3Application {
 
 	@PostConstruct
 	public void init() {
+		//La logica de la aplicacion ocurre aca:
 		cargaDeDatos.cargarDatosDesdeCSV();
 	}
 

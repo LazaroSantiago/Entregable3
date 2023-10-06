@@ -1,5 +1,6 @@
 package service;
 
+import DTO.CarreraDTO;
 import entity.Carrera;
 import repository.CarreraRepository;
 import jakarta.transaction.Transactional;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service("CarreraService")
 public class CarreraService implements BaseService<Carrera> {
@@ -21,12 +23,7 @@ public class CarreraService implements BaseService<Carrera> {
     }
 
     @Override
-    public boolean delete(Long id) throws Exception {
-        return false;
-    }
-
-    @Override
-    public Carrera save(Carrera entity) throws Exception {
+    public Carrera findById(Long id) throws Exception {
         return null;
     }
 
@@ -34,42 +31,42 @@ public class CarreraService implements BaseService<Carrera> {
     public Carrera update(Long id, Carrera entity) throws Exception {
         return null;
     }
-//
-//    @Override
-//    public List<Carrera> findAll() throws Exception {
-//        return null;
-//    }
-//
-//    @Override
-//    public Carrera findById(Long id) throws Exception {
-//        return null;
-//    }
-//
-//    @Override
-//    @Transactional
-//    public boolean delete(Long id) throws Exception {
-//        try {
-//            if (carreraRepository.existsById(id)) {
-//                carreraRepository.deleteById(id);
-//                return true;
-//            } else {
-//                throw new Exception();
-//            }
-//        } catch (Exception e) {
-//            throw new Exception(e.getMessage());
-//        }
-//    }
-//
-//    @Override
-//    @Transactional
-//    public Carrera save(Carrera entity) throws Exception {
-//        try {
-//            return this.carreraRepository.save(entity);
-//        } catch (Exception e) {
-//            throw new Exception(e.getMessage());
-//        }
-//    }
-//
+
+    @Override
+    @Transactional
+    public boolean delete(Long id) throws Exception {
+        try {
+            if (carreraRepository.existsById(id)) {
+                carreraRepository.deleteById(id);
+                return true;
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+
+    @Override
+    @Transactional
+    public Carrera save(Carrera entity) throws Exception {
+        try {
+            return this.carreraRepository.save(entity);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    public List<CarreraDTO> getCarrerasPorCantidadEstudiantes() throws Exception {
+        var result = carreraRepository.getCarrerasPorCantidadEstudiantes();
+        try{
+            return result.stream().map(carrera ->new CarreraDTO(carrera.getNombre(), carrera.getCantEstudiantes())).collect(Collectors.toList());
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
 //    @Override
 //    public Carrera update(Long id, Carrera entity) throws Exception {
 //        return null;

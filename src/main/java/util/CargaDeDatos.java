@@ -1,10 +1,14 @@
 package util;
 
 
+import DTO.CarreraDTO;
 import entity.Carrera;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import repository.CarreraRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class CargaDeDatos {
@@ -19,6 +23,8 @@ public class CargaDeDatos {
     public void cargarDatosDesdeCSV() {
         Carrera carrera = new Carrera("TUDAI");
         System.out.println(carrera);
-        carreraRepository.save(carrera);
+//        carreraRepository.save(carrera);
+        List<CarreraDTO> test = carreraRepository.getCarrerasPorCantidadEstudiantes();
+        System.out.println(test.isEmpty());
     }
 }

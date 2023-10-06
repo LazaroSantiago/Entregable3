@@ -22,6 +22,11 @@ public class EstudianteService implements BaseService<Estudiante> {
     }
 
     @Override
+    public Estudiante findById(Long id) throws Exception {
+        return null;
+    }
+
+    @Override
     public boolean delete(Long id) throws Exception {
         return false;
     }

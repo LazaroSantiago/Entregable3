@@ -21,6 +21,11 @@ public class InscripcionService implements BaseService<Inscripcion> {
     }
 
     @Override
+    public Inscripcion findById(Long id) throws Exception {
+        return null;
+    }
+
+    @Override
     public boolean delete(Long id) throws Exception {
         return false;
     }

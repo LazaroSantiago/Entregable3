@@ -3,6 +3,8 @@ package entity;
 import lombok.Data;
 import java.time.LocalDate;
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.InitBinder;
+
 import java.time.Period;
 
 @Entity
@@ -29,6 +31,13 @@ public class Inscripcion {
 
     @Column(name = "fecha_de_inicio")
     private LocalDate fechaInicio;
+
+//    @InitBinder
+//    public void initBinder(WebDataBinder binder) {
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yourdateformat"); //yyyy-MM-dd'T'HH:mm:ssZ example
+//        dateFormat.setLenient(false);
+//        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+//    }
 
     @Column(name = "es_graduado")
     private boolean esGraduado = false;
