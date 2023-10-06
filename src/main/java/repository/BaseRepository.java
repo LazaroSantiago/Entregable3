@@ -11,6 +11,6 @@ public interface BaseRepository<T, ID extends Serializable> extends org.springfr
     boolean existsById(ID id);
 
     List<T> findAll();
-
+    T findById(ID id);
     T save(T persisted);
 }

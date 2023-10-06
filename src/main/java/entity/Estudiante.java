@@ -26,8 +26,7 @@ public class Estudiante {
     @Column(unique = true)
     private int dni;
 
-//    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "estudiante")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Inscripcion> inscripciones;
 
     public Estudiante(){

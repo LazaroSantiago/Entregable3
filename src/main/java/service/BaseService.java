@@ -9,7 +9,6 @@ public interface BaseService<E> {
 
     boolean delete(Long id) throws Exception;
 
-    public E save(E entity) throws Exception;
+    E save(E entity) throws Exception;
 
-    public E update(Long id, E entity) throws Exception;
 }

@@ -18,17 +18,16 @@ public class CarreraService implements BaseService<Carrera> {
     private CarreraRepository carreraRepository;
 
     @Override
+    @Transactional
     public List<Carrera> findAll() throws Exception {
+        //todo: findAll
         return null;
     }
 
     @Override
+    @Transactional
     public Carrera findById(Long id) throws Exception {
-        return null;
-    }
-
-    @Override
-    public Carrera update(Long id, Carrera entity) throws Exception {
+        //todo: findByID
         return null;
     }
 
@@ -67,8 +66,4 @@ public class CarreraService implements BaseService<Carrera> {
         }
     }
 
-//    @Override
-//    public Carrera update(Long id, Carrera entity) throws Exception {
-//        return null;
-//    }
 }

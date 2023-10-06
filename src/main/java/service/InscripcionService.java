@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service("InscripcionService")
 public class InscripcionService implements BaseService<Inscripcion> {
-    /*todo();*/
+    /*todo: CRUD inscripciones*/
 
     @Autowired
     private InscripcionRepository InscripcionRepository;
@@ -35,8 +35,4 @@ public class InscripcionService implements BaseService<Inscripcion> {
         return null;
     }
 
-    @Override
-    public Inscripcion update(Long id, Inscripcion entity) throws Exception {
-        return null;
-    }
 }

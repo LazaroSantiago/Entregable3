@@ -32,6 +32,7 @@ public class Inscripcion {
     @Column(name = "fecha_de_inicio")
     private LocalDate fechaInicio;
 
+    //todo: por cosas raras de la vida, va a haber que implementar algo con esto en las fechas de inscripcion:
 //    @InitBinder
 //    public void initBinder(WebDataBinder binder) {
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("yourdateformat"); //yyyy-MM-dd'T'HH:mm:ssZ example

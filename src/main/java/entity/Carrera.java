@@ -14,7 +14,7 @@ public class Carrera {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_carrera;
 
-    @OneToMany(mappedBy = "carrera", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "carrera", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Inscripcion> inscripciones;
 
     @Column

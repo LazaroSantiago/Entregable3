@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class EstudianteController {
     @Autowired
     private EstudianteService estudianteService;
-
-    //todo: constructor con @qualifier
+    //todo: implementar todo lo que esta en service
 //
 //    @GetMapping("")
 //    public ResponseEntity<?> getAll(){
@@ -24,14 +23,14 @@ public class EstudianteController {
 //        }
 //    }
 //
-//    @GetMapping("/{genero}")
-//    public ResponseEntity<?> getAllByGender(@PathVariable char genero){
-//        try{
-//            return ResponseEntity.status(HttpStatus.OK).body(estudianteService.getEstudiantesPorGenero(genero));
-//        } catch (Exception e){
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
-//        }
-//    }
+    @GetMapping("/{genero}")
+    public ResponseEntity<?> getAllByGender(@PathVariable char genero){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(estudianteService.getEstudiantesPorGenero(genero));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
+        }
+    }
 //
 //    @PostMapping("")
 //    public ResponseEntity<?> save(@RequestBody Estudiante entity){

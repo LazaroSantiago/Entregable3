@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CarreraController {
     @Autowired
     private CarreraService carreraService;
-    //todo();
+    //todo: implementar todo lo que esta en service
 
     @PostMapping("insert")
     public ResponseEntity<?> save(@RequestBody Carrera entity) {
