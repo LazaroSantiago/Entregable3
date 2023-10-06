@@ -14,6 +14,7 @@ import util.CargaDeDatos;
 @EnableJpaRepositories("repository")
 @EntityScan("entity")
 public class Entregable3Application {
+	//todo: checks con Postman
 
 	@Autowired
 	private CargaDeDatos cargaDeDatos;

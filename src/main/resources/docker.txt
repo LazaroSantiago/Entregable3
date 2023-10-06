@@ -1,0 +1,3 @@
+docker pull mysql
+docker run --name test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql
+127.0.0.1

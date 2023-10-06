@@ -10,12 +10,12 @@ import java.util.List;
 
 @Repository("EstudianteRepository")
 public interface EstudianteRepository extends BaseRepository<Estudiante, Long> {
-    //todo: queries
 
-    List<Estudiante> getEstudianteByNumeroLegajo(int nuemeroLegajo);
+    //todo: recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia.
+    //fijate que es igual a la de genero.
 
     @Query("SELECT e FROM Estudiante e " +
-            "ORDER BY e.numeroLegajo DESC ")
+            "ORDER BY e.numeroLegajo ")
     List<Estudiante> getEstudiantes();
 
     @Query("SELECT e FROM Estudiante e " +
