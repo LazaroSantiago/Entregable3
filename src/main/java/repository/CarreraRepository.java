@@ -25,16 +25,4 @@ public interface CarreraRepository extends BaseRepository<Carrera, Long> {
             "ORDER BY count(i.legajo_estudiante) DESC ",
             nativeQuery = true)
     List<CarreraDTO> getCarrerasPorCantidadEstudiantes();
-
-
-    //todo: generar un reporte de las carreras, que para cada carrera incluya información de los
-    //inscriptos y egresados por año. Se deben ordenar las carreras alfabéticamente, y
-    //presentar los años de manera cronológica.
-
-    // parte de la h la otra parte en EstudianteRepository
-    @Query(
-            "select c from Carrera c" +
-                    " order by c.nombre"
-    )
-    List<Estudiante> getCarrera();
 }

@@ -2,12 +2,14 @@ package service;
 
 import DTO.CarreraDTO;
 import entity.Carrera;
+import entity.Estudiante;
 import repository.CarreraRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service("CarreraService")
@@ -20,15 +22,18 @@ public class CarreraService implements BaseService<Carrera> {
     @Override
     @Transactional
     public List<Carrera> findAll() throws Exception {
-        //todo: findAll
-        return null;
+        return carreraRepository.findAll();
     }
 
     @Override
     @Transactional
     public Carrera findById(Long id) throws Exception {
-        //todo: findByID
-        return null;
+        try {
+            Optional<Carrera> result = Optional.ofNullable(carreraRepository.findById(id));
+            return result.get();
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
 
     @Override
@@ -65,7 +70,4 @@ public class CarreraService implements BaseService<Carrera> {
             throw new Exception(e.getMessage());
         }
     }
-
-
-
 }

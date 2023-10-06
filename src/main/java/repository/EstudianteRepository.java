@@ -43,7 +43,8 @@ public interface EstudianteRepository extends BaseRepository<Estudiante, Long> {
             "select e " +
                     "from Estudiante e inner join Inscripcion i on e.numeroLegajo = i.estudiante.numeroLegajo inner  join " +
                     "Carrera c on i.carrera.id_carrera = c.id_carrera " +
-                    "where c.nombre like :carrera"
+                    "where c.nombre like :id_carrera" +
+                    " order by i.fechaInicio asc "
     )
-    List<Estudiante> getEstudiantesByCarrera(@Param("carrera")String carrera);
+    List<Estudiante> getEstudiantesByCarrera(@Param("carrera")int id_carrera);
 }
