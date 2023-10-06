@@ -1,8 +1,7 @@
-package Entity;
+package entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +26,8 @@ public class Estudiante {
     @Column(unique = true)
     private int dni;
 
-    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "estudiante")
     private Set<Inscripcion> inscripciones;
 
     public Estudiante(){

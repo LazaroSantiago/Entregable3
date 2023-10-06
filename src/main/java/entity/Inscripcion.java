@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 import lombok.Data;
 import java.time.LocalDate;
@@ -8,14 +8,15 @@ import java.time.Period;
 @Entity
 @Data
 public class Inscripcion {
-    @ManyToOne( cascade = {
+
+    @ManyToOne(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
-    })
-    @JoinColumn(name = "numero_legajo")
+    }, fetch = FetchType.LAZY)
+    @JoinColumn(name = "legajo_estudiante")
     private Estudiante estudiante;
 
-    @ManyToOne( cascade = {
+    @ManyToOne(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })

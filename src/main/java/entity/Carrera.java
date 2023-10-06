@@ -1,5 +1,6 @@
-package Entity;
+package entity;
 
+import entity.Inscripcion;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import java.util.Set;
 public class Carrera {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_carrera;
+    private Long id_carrera;
 
     @OneToMany(mappedBy = "carrera", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Inscripcion> inscripciones;
@@ -27,5 +28,10 @@ public class Carrera {
         super();
         this.nombre = nombre;
         this.inscripciones = new HashSet<>();
+    }
+
+    public Carrera(Long id_carrera, String nombre){
+        this(nombre);
+        this.id_carrera = id_carrera;
     }
 }

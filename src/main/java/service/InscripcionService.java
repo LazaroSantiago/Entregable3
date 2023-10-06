@@ -1,7 +1,7 @@
-package Service;
+package service;
 
-import Entity.Inscripcion;
-import Repository.InscripcionRepository;
+import entity.Inscripcion;
+import repository.InscripcionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +17,6 @@ public class InscripcionService implements BaseService<Inscripcion> {
 
     @Override
     public List<Inscripcion> findAll() throws Exception {
-        return null;
-    }
-
-    @Override
-    public Inscripcion findByID(Long id) throws Exception {
         return null;
     }
 

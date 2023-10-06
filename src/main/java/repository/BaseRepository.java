@@ -1,4 +1,4 @@
-package Repository;
+package repository;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import java.io.Serializable;
@@ -7,15 +7,13 @@ import java.util.Optional;
 
 @NoRepositoryBean
 public interface BaseRepository<T, ID extends Serializable> extends org.springframework.data.repository.Repository<T,ID> {
-    void delete(T deleted);
-
-    void deleteById(Long id);
-
-    boolean existsById(Long id);
+//    void deleteById(Long id);
+//
+//    boolean existsById(Long id);
 
     List<T> findAll();
 
-    Optional<T> findByID(Long id);
+//    Optional<T> findById(Long id);
 
     T save(T persisted);
 }

@@ -1,6 +1,6 @@
-package Repository;
+package repository;
 
-import Entity.Inscripcion;
+import entity.Inscripcion;
 import org.springframework.stereotype.Repository;
 
 @Repository("InscripcionRepository")
