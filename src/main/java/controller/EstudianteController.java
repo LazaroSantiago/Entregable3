@@ -40,7 +40,7 @@ public class EstudianteController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/D/{id}")
     public ResponseEntity<?> deleteById(@PathVariable long id){
         try{
             return  ResponseEntity.status(HttpStatus.OK).body(estudianteService.delete(id));

@@ -49,7 +49,7 @@ public class CarreraController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/D/{id}")
     public ResponseEntity<?> deleteById(@RequestBody Long id){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(carreraService.delete(id));

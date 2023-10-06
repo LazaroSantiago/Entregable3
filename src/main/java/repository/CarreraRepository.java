@@ -25,4 +25,6 @@ public interface CarreraRepository extends BaseRepository<Carrera, Long> {
             "ORDER BY count(i.legajo_estudiante) DESC ",
             nativeQuery = true)
     List<CarreraDTO> getCarrerasPorCantidadEstudiantes();
+
+
 }
