@@ -28,7 +28,7 @@ public class Entregable3Application {
 	@PostConstruct
 	public void init() {
 		//La logica de la aplicacion ocurre aca:
-		cargaDeDatos.cargarDatosDesdeCSV();
+		cargaDeDatos.cargarDatos();
 	}
 
 }

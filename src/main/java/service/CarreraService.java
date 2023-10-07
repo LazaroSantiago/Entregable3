@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 @Service("CarreraService")
 public class CarreraService implements BaseService<Carrera> {
-    /*todo();*/
 
     @Autowired
     private CarreraRepository carreraRepository;
@@ -28,10 +27,10 @@ public class CarreraService implements BaseService<Carrera> {
     @Override
     @Transactional
     public Carrera findById(Long id) throws Exception {
-        try {
-            Optional<Carrera> result = Optional.ofNullable(carreraRepository.findById(id));
+        try{
+            Optional<Carrera> result = carreraRepository.findById(id);
             return result.get();
-        } catch (Exception e) {
+        }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }

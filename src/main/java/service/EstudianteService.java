@@ -1,6 +1,7 @@
 package service;
 
 import DTO.EstudianteDTO;
+import entity.Carrera;
 import entity.Estudiante;
 import repository.EstudianteRepository;
 import jakarta.transaction.Transactional;
@@ -25,14 +26,13 @@ public class EstudianteService implements BaseService<Estudiante> {
     @Override
     @Transactional
     public Estudiante findById(Long id) throws Exception {
-        try {
-            Optional<Estudiante> result = Optional.ofNullable(estudianteRepository.findById(id));
+        try{
+            Optional<Estudiante> result = estudianteRepository.findById(id);
             return result.get();
-        } catch (Exception e) {
+        }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
-
     @Override
     @Transactional
     public boolean delete(Long id) throws Exception {

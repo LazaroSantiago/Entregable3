@@ -13,23 +13,17 @@ import java.util.List;
 public interface InscripcionRepository extends BaseRepository<Inscripcion, Long> {
 
     // parte de la h parte 1
-    @Query(
-            "select e " +
-                    "from Estudiante e inner join Inscripcion i on e.numeroLegajo = i.estudiante.numeroLegajo " +
-                    "where i.carrera.id_carrera = :id_carrera" +
-                    " order by i.fechaInicio desc "
-    )
-    List<Estudiante> getEstudiantesByCarrera(@Param("carrera")long id_carrera);
+    @Query("select e " +
+            "from Estudiante e inner join Inscripcion i on e.numeroLegajo = i.estudiante.numeroLegajo " +
+            "where i.carrera.id_carrera = :id_carrera " +
+            "order by i.fechaInicio desc ")
+    List<Estudiante> getEstudiantesByCarrera(@Param("id_carrera") long id_carrera);
 
-    @Query(
-            "select i from Inscripcion i " +
-                    "where i.estudiante.numeroLegajo = :id_estudiante and i.carrera.id_carrera = :id_carrera "
-    )
-    Inscripcion getInscripcionByCarreraAndAndEstudiante(@Param("id_estudiante")int id_estudiante, @Param("id_carrera")long id_carrera);
+    @Query("select i from Inscripcion i " +
+            "where i.estudiante.numeroLegajo = :id_estudiante and i.carrera.id_carrera = :id_carrera ")
+    Inscripcion getInscripcionByCarreraAndAndEstudiante(@Param("id_estudiante") int id_estudiante, @Param("id_carrera") long id_carrera);
 
-    @Query(
-            "select c from Carrera c " +
-                    "order by c.nombre"
-    )
+    @Query("select c from Carrera c " +
+            "order by c.nombre")
     List<Carrera> getCarreras();
 }

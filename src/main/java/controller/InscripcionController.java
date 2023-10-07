@@ -15,10 +15,10 @@ public class InscripcionController {
     private InscripcionService inscripcionService;
 
     @GetMapping("/reporte")
-    public ResponseEntity getReporte(){
+    public ResponseEntity<?> getReporte() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(inscripcionService.getReporte());
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. No se pudo ingresar, revise los campos e intente nuevamente.\"}");
         }
     }

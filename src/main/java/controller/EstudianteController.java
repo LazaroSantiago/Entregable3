@@ -14,48 +14,48 @@ public class EstudianteController {
     private EstudianteService estudianteService;
 
     @GetMapping("")
-    public ResponseEntity<?> getEstudiantes(){
+    public ResponseEntity<?> getEstudiantes() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(estudianteService.findAll());
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable long id){
-        try{
+    public ResponseEntity<?> findById(@PathVariable long id) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(estudianteService.findById(id));
-        }catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }
     }
 
-    @GetMapping("/{genero}")
-    public ResponseEntity<?> getAllByGender(@PathVariable char genero){
-        try{
-            return ResponseEntity.status(HttpStatus.OK).body(estudianteService.getEstudiantesPorGenero(genero));
-        } catch (Exception e){
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable long id) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(estudianteService.delete(id));
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }
     }
 
-    @DeleteMapping("/D/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable long id){
-        try{
-            return  ResponseEntity.status(HttpStatus.OK).body(estudianteService.delete(id));
-        }catch (Exception e){
-            return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
-        }
-
-    }
-
-    @PostMapping("/new")
-    public ResponseEntity<?> save(@RequestBody Estudiante entity){
-        try{
+    @PostMapping("/save")
+    public ResponseEntity<?> save(@RequestBody Estudiante entity) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(estudianteService.save(entity));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. No se pudo ingresar, revise los campos e intente nuevamente.\"}");
+        }
+    }
+
+    @GetMapping("/genero/{genero}")
+    public ResponseEntity<?> getAllByGender(@PathVariable char genero) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(estudianteService.getEstudiantesPorGenero(genero));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }
     }
 }
