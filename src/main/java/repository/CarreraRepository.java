@@ -15,10 +15,10 @@ public interface CarreraRepository extends BaseRepository<Carrera, Long> {
     //presentar los años de manera cronológica.
     //Estoy seguro de que habia una consulta igual en el entregable 2.
 
-
+    
     // F recuperar las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos.
     @Query(value =
-            "SELECT nombre, count(legajo_estudiante) AS cantEstudiantes " +
+            "SELECT e.nombre, count(i.legajo_estudiante) AS cantEstudiantes " +
             "FROM carrera e INNER JOIN inscripcion i ON i.id_carrera = e.id_carrera "+
             "GROUP BY e.nombre "+
             "HAVING count(i.legajo_estudiante) > 0 "+

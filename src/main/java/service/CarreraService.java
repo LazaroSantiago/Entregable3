@@ -2,7 +2,6 @@ package service;
 
 import DTO.CarreraDTO;
 import entity.Carrera;
-import entity.Estudiante;
 import repository.CarreraRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +63,7 @@ public class CarreraService implements BaseService<Carrera> {
     public List<CarreraDTO> getCarrerasPorCantidadEstudiantes() throws Exception {
         var result = carreraRepository.getCarrerasPorCantidadEstudiantes();
         try{
-            return result.stream().map(carrera ->new CarreraDTO(carrera.getNombre(), carrera.getCantEstudiantes())).collect(Collectors.toList());
+            return result.stream().map(carreraDTO ->new CarreraDTO(carreraDTO.getNombre(), carreraDTO.getCantEstudiantes())).collect(Collectors.toList());
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

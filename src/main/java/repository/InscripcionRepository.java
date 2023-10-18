@@ -3,6 +3,7 @@ package repository;
 import entity.Carrera;
 import entity.Estudiante;
 import entity.Inscripcion;
+import lombok.Data;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -21,7 +22,7 @@ public interface InscripcionRepository extends BaseRepository<Inscripcion, Long>
 
     @Query("select i from Inscripcion i " +
             "where i.estudiante.numeroLegajo = :id_estudiante and i.carrera.id_carrera = :id_carrera ")
-    Inscripcion getInscripcionByCarreraAndAndEstudiante(@Param("id_estudiante") int id_estudiante, @Param("id_carrera") long id_carrera);
+    Inscripcion getInscripcionByCarreraAndAndEstudiante(@Param("id_estudiante") long id_estudiante, @Param("id_carrera") long id_carrera);
 
     @Query("select c from Carrera c " +
             "order by c.nombre")

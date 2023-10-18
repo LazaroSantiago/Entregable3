@@ -12,7 +12,7 @@ public class InscripcionDTO {
     private LocalDate fechaInicio;
     private boolean esGraduado;
 
-    private int numeroLegajoEstudiante;
+    private long numeroLegajoEstudiante;
     private String nombreCompletoEstudiante;
     private char generoEstudiante;
 
@@ -20,7 +20,7 @@ public class InscripcionDTO {
         super();
     }
     public InscripcionDTO(String nombreCarrera, LocalDate fechaInicio, boolean esGraduado,
-                          int numeroLegajoEstudiante, String nombreCompletoEstudiante, char generoEstudiante ){
+                          long numeroLegajoEstudiante, String nombreCompletoEstudiante, char generoEstudiante ){
         this.nombreCarrera = nombreCarrera;
         this.fechaInicio = fechaInicio;
         this.esGraduado = esGraduado;
