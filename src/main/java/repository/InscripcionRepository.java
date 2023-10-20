@@ -10,10 +10,7 @@ import java.util.List;
 @Repository("InscripcionRepository")
 public interface InscripcionRepository extends BaseRepository<Inscripcion, Long> {
 
-    @Query("SELECT " +
-            "    c.nombre as Carrera," +
-            "    i.fechaInicio, i.esGraduado, " +
-            "    e.numeroLegajo, e.nombre, e.genero " +
+    @Query("SELECT new DTO.InscripcionDTO(c.nombre, i.fechaInicio, i.esGraduado, e.numeroLegajo, e.nombre, e.genero) " +
             "FROM Inscripcion i " +
             "JOIN Carrera c ON i.carrera.id_carrera = c.id_carrera " +
             "JOIN Estudiante e ON i.estudiante.numeroLegajo = e.numeroLegajo " +

@@ -17,13 +17,12 @@ public interface CarreraRepository extends BaseRepository<Carrera, Long> {
 
     
     // F recuperar las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos.
-    @Query(value =
-            "SELECT e.nombre, count(i.legajo_estudiante) AS cantEstudiantes " +
-            "FROM carrera e INNER JOIN inscripcion i ON i.id_carrera = e.id_carrera "+
-            "GROUP BY e.nombre "+
-            "HAVING count(i.legajo_estudiante) > 0 "+
-            "ORDER BY count(i.legajo_estudiante) DESC ",
-            nativeQuery = true)
+    @Query(
+            "SELECT new DTO.CarreraDTO(c.nombre, count(i.estudiante.numeroLegajo))  " +
+            "FROM Carrera c INNER JOIN Inscripcion i ON i.carrera.id_carrera = c.id_carrera "+
+            "GROUP BY c.nombre "+
+            "HAVING count(i.estudiante.numeroLegajo) > 0 "+
+            "ORDER BY count(i.estudiante.numeroLegajo) DESC ")
     List<CarreraDTO> getCarrerasPorCantidadEstudiantes();
 
 

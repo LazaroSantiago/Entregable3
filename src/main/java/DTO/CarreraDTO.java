@@ -2,10 +2,12 @@ package DTO;
 
 import lombok.Data;
 
+import java.math.BigInteger;
+
 @Data
 public class CarreraDTO {
     private String nombre;
-    private int cantEstudiantes;
+    private Long cantEstudiantes;
 
     public CarreraDTO() {
         super();
@@ -15,7 +17,7 @@ public class CarreraDTO {
         this.nombre = nombre;
     }
 
-    public CarreraDTO(String nombre, int cantEstudiantes) {
+    public CarreraDTO(String nombre, long cantEstudiantes) {
         this.nombre = nombre;
         this.cantEstudiantes = cantEstudiantes;
     }
