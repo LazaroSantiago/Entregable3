@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class EstudianteDTO {
-    private int numeroLegajo;
+    private Long numeroLegajo;
     private String nombreCompleto;
     private String ciudad;
     private char genero;
@@ -13,19 +13,19 @@ public class EstudianteDTO {
         super();
     }
 
-    public EstudianteDTO(int numeroLegajo, String nombre, String apellido){
+    public EstudianteDTO(Long numeroLegajo, String nombre, String apellido){
         this.numeroLegajo = numeroLegajo;
         this.nombreCompleto = nombre + ", " + apellido;
     }
 
-    public EstudianteDTO(String nombreCompleto, String ciudad, char genero, int numeroLegajo){
+    public EstudianteDTO(String nombreCompleto, String ciudad, char genero, Long numeroLegajo){
         this.nombreCompleto = nombreCompleto;
         this.ciudad = ciudad;
         this.genero = genero;
         this.numeroLegajo = numeroLegajo;
     }
 
-    public EstudianteDTO(String nombre, String apellido, String ciudad, char genero, int numeroLegajo){
+    public EstudianteDTO(String nombre, String apellido, String ciudad, char genero, Long numeroLegajo){
         this.setNombreCompleto(nombre, apellido);
         this.ciudad = ciudad;
         this.genero = genero;

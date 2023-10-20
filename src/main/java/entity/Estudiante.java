@@ -11,7 +11,7 @@ import java.util.Set;
 public class Estudiante {
     @Id
     @Column(name = "numero_legajo")
-    private int numeroLegajo;
+    private Long numeroLegajo;
 
     @Column
     private String nombre;
