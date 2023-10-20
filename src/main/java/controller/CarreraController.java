@@ -41,7 +41,7 @@ public class CarreraController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@RequestBody Long id){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(carreraService.delete(id));

@@ -32,7 +32,7 @@ public class EstudianteController {
     }
 
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable long id) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(estudianteService.delete(id));
@@ -41,7 +41,7 @@ public class EstudianteController {
         }
     }
 
-    @PostMapping("/save")
+    @PostMapping("")
     public ResponseEntity<?> save(@RequestBody Estudiante entity) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(estudianteService.save(entity));
