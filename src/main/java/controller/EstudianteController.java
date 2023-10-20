@@ -46,7 +46,7 @@ public class EstudianteController {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(estudianteService.save(entity));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. No se pudo ingresar, revise los campos e intente nuevamente.\"}");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }
     }
 
@@ -54,6 +54,15 @@ public class EstudianteController {
     public ResponseEntity<?> getAllByGender(@PathVariable char genero) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(estudianteService.getEstudiantesPorGenero(genero));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
+        }
+    }
+
+    @GetMapping("/{carrera}/{ciudad}")
+    public ResponseEntity<?> getEstudiantesByCarreraAndApellido(@PathVariable String carrera, @PathVariable String ciudad) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(estudianteService.getEstudiantesByCarreraAndApellido(carrera, ciudad));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor intente más tarde.\"}");
         }

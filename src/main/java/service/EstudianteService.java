@@ -1,12 +1,11 @@
 package service;
 
 import DTO.EstudianteDTO;
-import entity.Carrera;
 import entity.Estudiante;
-import repository.EstudianteRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import repository.EstudianteRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +60,16 @@ public class EstudianteService implements BaseService<Estudiante> {
     @Transactional
     public List<EstudianteDTO> getEstudiantesPorGenero(char genero) throws Exception {
         var result = estudianteRepository.getEstudiantesByGenero(genero);
+        try {
+            return result.stream().map(estudiante -> new EstudianteDTO(estudiante.getNombreCompleto(), estudiante.getCiudad(), estudiante.getGenero(), estudiante.getNumeroLegajo())).collect(Collectors.toList());
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
+    public List<EstudianteDTO> getEstudiantesByCarreraAndApellido(String carrera, String ciudad) throws Exception {
+        var result = estudianteRepository.getEstudiantesByCarreraAndApellido(carrera, ciudad);
         try {
             return result.stream().map(estudiante -> new EstudianteDTO(estudiante.getNombreCompleto(), estudiante.getCiudad(), estudiante.getGenero(), estudiante.getNumeroLegajo())).collect(Collectors.toList());
         } catch (Exception e){

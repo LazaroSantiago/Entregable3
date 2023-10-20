@@ -18,8 +18,8 @@ public interface EstudianteRepository extends BaseRepository<Estudiante, Long> {
 
     // D recuperar un estudiante, en base a su número de libreta universitaria.
     @Query(
-            "select e from Estudiante e " +
-                    "where e.numeroLegajo = :numeroLegajo"
+            "SELECT e FROM Estudiante e " +
+            "WHERE e.numeroLegajo = :numeroLegajo"
     )
     Estudiante getEstudianteByNumeroLegajo(@Param("numeroLegajo")int numeroLegajo);
 
@@ -31,10 +31,10 @@ public interface EstudianteRepository extends BaseRepository<Estudiante, Long> {
 
     // G recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia.
     @Query(
-            "select e " +
-                    "from Estudiante e inner join Inscripcion i on e.numeroLegajo = i.estudiante.numeroLegajo inner  join " +
-                    "Carrera c on i.carrera.id_carrera = c.id_carrera " +
-                    "where c.nombre like :carrera and e.ciudad like :ciudad"
+            "SELECT new DTO.EstudianteDTO(e.nombre, e.apellido, e.ciudad, e.genero, e.numeroLegajo) " +
+            "FROM Estudiante e INNER JOIN Inscripcion i ON e.numeroLegajo = i.estudiante.numeroLegajo INNER JOIN " +
+            "Carrera c ON i.carrera.id_carrera = c.id_carrera " +
+            "WHERE c.nombre LIKE :carrera AND e.ciudad LIKE :ciudad"
     )
-    List<Estudiante> getEstudiantesByCarreraAndApellido(@Param("carrera")String carrera, @Param("ciudad")String ciudad);
+    List<EstudianteDTO> getEstudiantesByCarreraAndApellido(@Param("carrera")String carrera, @Param("ciudad")String ciudad);
 }
