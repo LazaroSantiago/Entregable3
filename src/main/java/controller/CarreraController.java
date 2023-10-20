@@ -42,8 +42,8 @@ public class CarreraController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteById(@RequestBody Long id){
-        try{
+    public ResponseEntity<?> deleteById(@RequestBody Long id) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(carreraService.delete(id));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. No se pudo ingresar, revise los campos e intente nuevamente.\"}");
@@ -51,10 +51,10 @@ public class CarreraController {
     }
 
     @GetMapping("/cantidad_estudiantes")
-    public ResponseEntity<?> getCarrerasCantidadEstudiantes(){
+    public ResponseEntity<?> getCarrerasCantidadEstudiantes() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(carreraService.getCarrerasPorCantidadEstudiantes());
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. No se pudo ingresar, revise los campos e intente nuevamente.\"}");
         }
     }
