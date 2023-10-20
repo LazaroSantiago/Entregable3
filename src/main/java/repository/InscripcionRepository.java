@@ -1,11 +1,8 @@
 package repository;
 
-import entity.Carrera;
-import entity.Estudiante;
+import DTO.InscripcionDTO;
 import entity.Inscripcion;
-import lombok.Data;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,18 +10,13 @@ import java.util.List;
 @Repository("InscripcionRepository")
 public interface InscripcionRepository extends BaseRepository<Inscripcion, Long> {
 
-    // parte de la h parte 1
-    @Query("select e " +
-            "from Estudiante e inner join Inscripcion i on e.numeroLegajo = i.estudiante.numeroLegajo " +
-            "where i.carrera.id_carrera = :id_carrera " +
-            "order by i.fechaInicio desc ")
-    List<Estudiante> getEstudiantesByCarrera(@Param("id_carrera") long id_carrera);
-
-    @Query("select i from Inscripcion i " +
-            "where i.estudiante.numeroLegajo = :id_estudiante and i.carrera.id_carrera = :id_carrera ")
-    Inscripcion getInscripcionByCarreraAndAndEstudiante(@Param("id_estudiante") long id_estudiante, @Param("id_carrera") long id_carrera);
-
-    @Query("select c from Carrera c " +
-            "order by c.nombre")
-    List<Carrera> getCarreras();
+    @Query("SELECT " +
+            "    c.nombre as Carrera," +
+            "    i.fechaInicio, i.esGraduado, " +
+            "    e.numeroLegajo, e.nombre, e.genero " +
+            "FROM Inscripcion i " +
+            "JOIN Carrera c ON i.carrera.id_carrera = c.id_carrera " +
+            "JOIN Estudiante e ON i.estudiante.numeroLegajo = e.numeroLegajo " +
+            "ORDER BY c.nombre ASC, YEAR(i.fechaInicio) ASC")
+    List<InscripcionDTO> reporteCarreras();
 }

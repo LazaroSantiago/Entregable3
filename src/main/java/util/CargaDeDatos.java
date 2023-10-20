@@ -22,10 +22,14 @@ public class CargaDeDatos {
     }
 
     public void cargarDatos() {
+
+
 //        Carrera carrera = new Carrera("TUDAI");
+//        Carrera carrera2 = new Carrera("sistemas");
 //        System.out.println(carrera);
-//        carreraRepository.save(carrera);
-//        carreraController.findById(102L);
+//        carreraController.save(carrera);
+//        carreraController.save(carrera2);
+//
 //        List<CarreraDTO> test = carreraRepository.getCarrerasPorCantidadEstudiantes();
 //        System.out.println(test.isEmpty());
     }
