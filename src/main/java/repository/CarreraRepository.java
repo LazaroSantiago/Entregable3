@@ -22,8 +22,7 @@ public interface CarreraRepository extends BaseRepository<Carrera, Long> {
             "FROM Carrera c INNER JOIN Inscripcion i ON i.carrera.id_carrera = c.id_carrera "+
             "GROUP BY c.nombre "+
             "HAVING count(i.estudiante.numeroLegajo) > 0 "+
-            "ORDER BY count(i.estudiante.numeroLegajo) DESC ")
+            "ORDER BY count(i.estudiante.numeroLegajo) DESC "
+    )
     List<CarreraDTO> getCarrerasPorCantidadEstudiantes();
-
-
 }

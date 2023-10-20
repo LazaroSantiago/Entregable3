@@ -40,9 +40,7 @@ public class InscripcionService implements BaseService<Inscripcion> {
     }
 
     public List<InscripcionDTO> getReporte() {
-        List<InscripcionDTO> repor = InscripcionRepository.reporteCarreras();
-        System.out.println(repor);
-        return repor;
+        return InscripcionRepository.reporteCarreras();
     }
 
 }
